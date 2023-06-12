@@ -1,2 +1,3 @@
 rootProject.name = 'betcitytesting'
+include 'tests'
 
