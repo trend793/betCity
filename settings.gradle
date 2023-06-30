@@ -1,3 +1,5 @@
 rootProject.name = 'betcitytesting'
 include 'tests'
+include 'web'
+include 'common'
 
