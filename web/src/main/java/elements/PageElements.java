@@ -23,4 +23,10 @@ public class PageElements {
     public static final UiElement STAR_FAVORITES = new UiElement(By.cssSelector(".line-event__favorites .icon.icon_favorites"));
     public static final UiElement DENVER_IN_FAVOURITES=new UiElement(By.cssSelector(".left-filter__item-name[href='/ru/line/basketball/325/13507579']"));
     public static final UiElement BOSTON_IN_FAVOURITES=new UiElement(By.cssSelector(".left-filter__item-name[href='/ru/line/basketball/325/13507553']"));
+
+    public static final UiElement LOGIN_ERROR=new UiElement(By.cssSelector(".login-row__error"));
+    public static final UiElement ENTRANCE=new UiElement(By.cssSelector("#authSignIn"));
+    public static final UiElement ENTRANCE_IN_MENU=new UiElement(By.cssSelector("#loginBtnSignIn"));
+    public static final UiElement LOGIN_FIELD=new UiElement(By.cssSelector(".input-text [name='login']"));
+    public static final UiElement PASSWORD_FIELD=new UiElement(By.cssSelector(".ng-untouched.ng-pristine.ng-invalid[name='pass']"));
 }

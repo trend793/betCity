@@ -27,4 +27,10 @@ public class MainTest extends TestBase {
                 .verifyEvensFavourites(PageElements.BOSTON_IN_FAVOURITES,PageElements.NBA_BOSTON_BUTTON);
 
     }
+
+    @Test
+    void checkLoginAndPasswordField(){
+        web.testMethods().selectEntrance("cjsdjc");
+        web.testMethods().verifyDataLoginPassworld();
+    }
 }
