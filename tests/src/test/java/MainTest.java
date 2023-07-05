@@ -8,29 +8,34 @@ public class MainTest extends TestBase {
         System.out.println("555");
 
 
-        web.testMethods().selectDate().verifyDate();
+        web.onMasterPage().selectDate().verifyDate();
 
         System.out.println("999");
     }
     @Test
     void checkTimeBeltTest(){
 
-        web.testMethods().selectTimeBelt()
+        web.onMasterPage().selectTimeBelt()
                 .saveTimeBelt()
                 .verifyTimeBelt();
     }
     @Test
     void checkEventsInFavourites(){
-        web.testMethods().selectEvents().selectEventTeam(PageElements.NBA_DENVER_BUTTON)
+
+        web.onMasterPage().selectEvents().selectEventTeam()
                 .verifyEvensFavourites(PageElements.DENVER_IN_FAVOURITES,PageElements.NBA_DENVER_BUTTON);
-        web.testMethods().selectEvents().selectEventTeam(PageElements.NBA_BOSTON_BUTTON)
+        web.onMasterPage().selectEvents().selectEventTeam()
                 .verifyEvensFavourites(PageElements.BOSTON_IN_FAVOURITES,PageElements.NBA_BOSTON_BUTTON);
 
     }
 
     @Test
     void checkLoginAndPasswordField(){
-        web.testMethods().selectEntrance("cjsdjc");
-        web.testMethods().verifyDataLoginPassworld();
+
+        web.onMasterPage().clickLoginButton()
+                .checkNotError()
+                .fillLoginForm()
+                .clickConfirmButtonInLoginForm()
+                .verifyError();
     }
 }

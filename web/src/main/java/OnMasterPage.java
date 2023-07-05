@@ -6,8 +6,8 @@ import org.jetbrains.annotations.NotNull;
 import static elements.PageElements.*;
 import static elements.PageElements.DATA_PAGE;
 
-public class TestMethods {
-    public TestMethods selectDate() {
+public class OnMasterPage {
+    public OnMasterPage selectDate() {
         RESULTS_BUTTON.get().click();
         CALENDAR_BUTTON.get().click();
         DATA.get().click();
@@ -22,14 +22,14 @@ public class TestMethods {
         Assertions.assertThat(DATA_PAGE.get().getAttribute("innerText")).isEqualTo("01.07.2023");
     }
 
-    public TestMethods selectTimeBelt() {
+    public OnMasterPage selectTimeBelt() {
         SETTINGS_BUTTON.get().click();
         TIME_BELT_BUTTON.get().click();
         UTC_ALGIRIA_BUTTON.get().click();
         return this;
     }
 
-    public TestMethods saveTimeBelt() {
+    public OnMasterPage saveTimeBelt() {
         SAVE_BUTTON.get().click();
         return this;
     }
@@ -39,18 +39,19 @@ public class TestMethods {
         Assertions.assertThat(UTC_TIME.get().getAttribute("innerText")).contains("UTC +1");
     }
 
-    public TestMethods selectEvents() {
+    public OnMasterPage selectEvents() {
         LINE_BUTTON.get().click();
         NBA_WINNER_BUTTON_28_06_23.get().click();
         return this;
     }
-    public TestMethods selectEventTeam(@NotNull UiElement selectorTeam){
-        selectorTeam.get().click();
+
+    public OnMasterPage selectEventTeam() {
+
         STAR_FAVORITES.get().click();
         return this;
     }
 
-    public void verifyEvensFavourites(@NotNull UiElement selectorTeamInFavorites, @NotNull UiElement selectorTeam){
+    public void verifyEvensFavourites(@NotNull UiElement selectorTeamInFavorites, @NotNull UiElement selectorTeam) {
         System.out.println(selectorTeamInFavorites.get().getAttribute("href"));
         System.out.println(selectorTeam.get().getAttribute("href"));
         Assertions.assertThat(selectorTeamInFavorites.get().getAttribute("href"))
@@ -58,15 +59,30 @@ public class TestMethods {
 
     }
 
-    public void selectEntrance(String login) {
-        ENTRANCE.get().click();
-        LOGIN_FIELD.get().sendKeys(login);
-        PASSWORD_FIELD.get().sendKeys(login);
-        ENTRANCE_IN_MENU.get().click();
-        System.out.println(",");
+    public OnMasterPage clickLoginButton() {
+        LOGIN_BUTTON.get().click();
+        return this;
     }
 
-    public void verifyDataLoginPassworld() {
-        Assertions.assertThat(LOGIN_ERROR.get().getAttribute("className")).isEqualTo("login-row__error");
+    public OnMasterPage fillLoginForm() {
+
+        String login = "ejkfjoipreijr";
+        LOGIN_FIELD.get().sendKeys(login);
+        PASSWORD_FIELD.get().sendKeys(login);
+        return this;
+    }
+    public OnMasterPage clickConfirmButtonInLoginForm(){
+        CONFIRM_BUTTON.get().click();
+        return this;
+    }
+
+
+    public void verifyError() {
+        Assertions.assertThat(LOGIN_ERROR.get().getText()).isNotEmpty();
+    }
+
+    public OnMasterPage checkNotError() {
+        Assertions.assertThat(LOGIN_ERROR.get().getText()).isEmpty();
+        return this;
     }
 }
