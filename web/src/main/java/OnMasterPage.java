@@ -1,10 +1,11 @@
-import elements.PageElements;
+import elements.RandomElements;
 import elements.UiElement;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 
 import static elements.PageElements.*;
 import static elements.PageElements.DATA_PAGE;
+import static elements.RandomElements.login;
 
 public class OnMasterPage {
     public OnMasterPage selectDate() {
@@ -47,7 +48,7 @@ public class OnMasterPage {
 
     public OnMasterPage selectEventTeam() {
 
-        STAR_FAVORITES.get().click();
+        ELEMENT_STAR_FAVORITES.get().click();
         return this;
     }
 
@@ -65,24 +66,23 @@ public class OnMasterPage {
     }
 
     public OnMasterPage fillLoginForm() {
-
-        String login = "ejkfjoipreijr";
-        LOGIN_FIELD.get().sendKeys(login);
-        PASSWORD_FIELD.get().sendKeys(login);
+        LOGIN_FIELD.get().sendKeys(login());
+        PASSWORD_FIELD.get().sendKeys(login());
         return this;
     }
-    public OnMasterPage clickConfirmButtonInLoginForm(){
+
+    public OnMasterPage clickConfirmButtonInLoginForm() {
         CONFIRM_BUTTON.get().click();
         return this;
     }
 
 
     public void verifyError() {
-        Assertions.assertThat(LOGIN_ERROR.get().getText()).isNotEmpty();
+        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isNotEmpty();
     }
 
     public OnMasterPage checkNotError() {
-        Assertions.assertThat(LOGIN_ERROR.get().getText()).isEmpty();
+        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isEmpty();
         return this;
     }
 }
