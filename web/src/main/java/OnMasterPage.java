@@ -1,3 +1,4 @@
+import elements.PageElements;
 import elements.RandomElements;
 import elements.UiElement;
 import org.assertj.core.api.Assertions;
@@ -40,15 +41,13 @@ public class OnMasterPage {
         Assertions.assertThat(UTC_TIME.get().getAttribute("innerText")).contains("UTC +1");
     }
 
-    public OnMasterPage selectEvents() {
+    public OnMasterPage selectEventsInLine() {
         LINE_BUTTON.get().click();
-        NBA_WINNER_BUTTON_28_06_23.get().click();
         return this;
     }
 
-    public OnMasterPage selectEventTeam() {
-
-        ELEMENT_STAR_FAVORITES.get().click();
+    public OnMasterPage selectNBA() {
+        NBA_WINNER_BUTTON_28_06_23.get().click();
         return this;
     }
 
@@ -58,6 +57,12 @@ public class OnMasterPage {
         Assertions.assertThat(selectorTeamInFavorites.get().getAttribute("href"))
                 .isEqualTo(selectorTeam.get().getAttribute("href"));
 
+    }
+
+    public void addTeamInFavouritesAndVerifyTeamInFavourites() {
+        NBA_BOSTON_BUTTON.get().click();
+        ELEMENT_STAR_FAVORITES.get().click();
+        verifyEvensFavourites(BOSTON_IN_FAVOURITES, NBA_BOSTON_BUTTON);
     }
 
     public OnMasterPage clickLoginButton() {
@@ -75,7 +80,6 @@ public class OnMasterPage {
         CONFIRM_BUTTON.get().click();
         return this;
     }
-
 
     public void verifyError() {
         Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isNotEmpty();
