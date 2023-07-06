@@ -1,37 +1,41 @@
-import elements.PageElements;
-import elements.RandomElements;
 import elements.UiElement;
 import org.assertj.core.api.Assertions;
 import org.jetbrains.annotations.NotNull;
 
 import static elements.PageElements.*;
-import static elements.PageElements.DATA_PAGE;
+import static elements.PageElements.DATE_PAGE;
 import static elements.RandomElements.login;
 
-public class OnMasterPage {
-    public OnMasterPage selectDate() {
+public class MasterPage {
+
+    public MasterPage onResultsPage() {
         RESULTS_BUTTON.get().click();
+        return this;
+    }
+
+    public MasterPage selectDate() {
         CALENDAR_BUTTON.get().click();
-        DATA.get().click();
+        DATE.get().click();
         return this;
     }
 
     public void verifyDate() {
-        if (DATA_PAGE.get().getAttribute("innerText").equals("01.07"))
-            System.out.println("correct");
-        else System.out.println("not correct");
-        System.out.println(DATA_PAGE.get().getAttribute("innerText"));
-        Assertions.assertThat(DATA_PAGE.get().getAttribute("innerText")).isEqualTo("01.07.2023");
+        System.out.println(DATE_PAGE.get().getAttribute("innerText"));
+        Assertions.assertThat(DATE_PAGE.get().getAttribute("innerText")).isEqualTo(Parametrs.DATE_TEMPLATE);
     }
 
-    public OnMasterPage selectTimeBelt() {
+    public MasterPage clickSettingButton() {
         SETTINGS_BUTTON.get().click();
+        return this;
+    }
+
+    public MasterPage selectTimeBelt() {
         TIME_BELT_BUTTON.get().click();
         UTC_ALGIRIA_BUTTON.get().click();
         return this;
     }
 
-    public OnMasterPage saveTimeBelt() {
+    public MasterPage saveTimeBelt() {
         SAVE_BUTTON.get().click();
         return this;
     }
@@ -41,12 +45,12 @@ public class OnMasterPage {
         Assertions.assertThat(UTC_TIME.get().getAttribute("innerText")).contains("UTC +1");
     }
 
-    public OnMasterPage selectEventsInLine() {
+    public MasterPage onLinePage() {
         LINE_BUTTON.get().click();
         return this;
     }
 
-    public OnMasterPage selectNBA() {
+    public MasterPage selectNBA() {
         NBA_WINNER_BUTTON_28_06_23.get().click();
         return this;
     }
@@ -65,28 +69,29 @@ public class OnMasterPage {
         verifyEvensFavourites(BOSTON_IN_FAVOURITES, NBA_BOSTON_BUTTON);
     }
 
-    public OnMasterPage clickLoginButton() {
+    public MasterPage clickLoginButton() {
         LOGIN_BUTTON.get().click();
         return this;
     }
 
-    public OnMasterPage fillLoginForm() {
+    public MasterPage fillLoginForm() {
         LOGIN_FIELD.get().sendKeys(login());
         PASSWORD_FIELD.get().sendKeys(login());
         return this;
     }
 
-    public OnMasterPage clickConfirmButtonInLoginForm() {
+    public MasterPage clickConfirmButtonInLoginForm() {
         CONFIRM_BUTTON.get().click();
         return this;
     }
 
     public void verifyError() {
-        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isNotEmpty();
+        Assertions.assertThat(!(ERROR_MESSAGE_FIELD.get().getText().isEmpty()));
     }
 
-    public OnMasterPage checkNotError() {
+    public MasterPage checkNotError() {
         Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isEmpty();
         return this;
     }
+
 }

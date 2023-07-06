@@ -1,7 +1,7 @@
 public class WebBot {
 
-    public OnMasterPage onMasterPage() {
-        return new OnMasterPage();
+    public MasterPage onMasterPage() {
+        return new MasterPage();
     }
 
 }

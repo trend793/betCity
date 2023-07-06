@@ -6,8 +6,8 @@ public class PageElements {
     public static final UiElement FIRST = new UiElement(By.cssSelector(".push-confirm__title span.icon_close"));
     public static final UiElement RESULTS_BUTTON = new UiElement(By.cssSelector("[href='/ru/results']"));
     public static final UiElement CALENDAR_BUTTON = new UiElement(By.cssSelector(".icon_calendar"));
-    public static final UiElement DATA = new UiElement(By.cssSelector("[aria-label*=' 1,']:not(.nextMonthDay)"));
-    public static final UiElement DATA_PAGE = new UiElement(By.cssSelector(".datepicker__current-date"));
+    public static final UiElement DATE = new UiElement(By.cssSelector("[aria-label*=' 1,']:not(.nextMonthDay)"));
+    public static final UiElement DATE_PAGE = new UiElement(By.cssSelector(".datepicker__current-date"));
 
     public static final UiElement SETTINGS_BUTTON = new UiElement(By.cssSelector(".sub-header__icon-settings"));
     public static final UiElement TIME_BELT_BUTTON = new UiElement(By.xpath("//*[contains(text(),'UTC +3:00 ')]/.."));

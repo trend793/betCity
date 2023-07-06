@@ -4,26 +4,28 @@ public class MainTest extends TestBase {
 
     @Test
     void checkDateTest() {
-        web.onMasterPage().selectDate()
+        web.onMasterPage().onResultsPage()
+                .selectDate()
                 .verifyDate();
     }
 
     @Test
-    void checkTimeBeltTest(){
-        web.onMasterPage().selectTimeBelt()
+    void checkTimeBeltTest() {
+        web.onMasterPage().clickSettingButton()
+                .selectTimeBelt()
                 .saveTimeBelt()
                 .verifyTimeBelt();
     }
 
     @Test
-    void checkEventsInFavourites(){
-        web.onMasterPage().selectEventsInLine()
+    void checkEventsInFavourites() {
+        web.onMasterPage().onLinePage()
                 .selectNBA()
                 .addTeamInFavouritesAndVerifyTeamInFavourites();
     }
 
     @Test
-    void checkLoginAndPasswordField(){
+    void checkLoginAndPasswordField() {
         web.onMasterPage().clickLoginButton()
                 .checkNotError()
                 .fillLoginForm()
