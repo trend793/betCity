@@ -4,7 +4,7 @@ public class MainTest extends TestBase {
 
     @Test
     void checkDateTest() {
-        web.onMasterPage().onResultsPage()
+        web.onMasterPage().clickResultsButton()
                 .selectDate()
                 .verifyDate();
     }
@@ -19,7 +19,7 @@ public class MainTest extends TestBase {
 
     @Test
     void checkEventsInFavourites() {
-        web.onMasterPage().onLinePage()
+        web.onMasterPage().clickLineButton()
                 .selectNBA()
                 .addTeamInFavouritesAndVerifyTeamInFavourites();
     }

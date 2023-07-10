@@ -8,7 +8,7 @@ import static elements.RandomElements.login;
 
 public class MasterPage {
 
-    public MasterPage onResultsPage() {
+    public MasterPage clickResultsButton() {
         RESULTS_BUTTON.get().click();
         return this;
     }
@@ -45,7 +45,7 @@ public class MasterPage {
         Assertions.assertThat(UTC_TIME.get().getAttribute("innerText")).contains("UTC +1");
     }
 
-    public MasterPage onLinePage() {
+    public MasterPage clickLineButton() {
         LINE_BUTTON.get().click();
         return this;
     }
