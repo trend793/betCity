@@ -26,8 +26,8 @@ public class MainTest extends TestBase {
 
     @Test
     void checkLoginAndPasswordField() {
-        web.onMasterPage().clickLoginButton()
-                .checkNotError()
+        web.onMasterPage().clickLoginButton();
+        web.entranceInAccountDialog().checkNotError()
                 .fillLoginForm()
                 .clickConfirmButtonInLoginForm()
                 .verifyError();

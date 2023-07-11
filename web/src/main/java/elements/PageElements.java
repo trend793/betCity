@@ -29,4 +29,6 @@ public class PageElements {
     public static final UiElement CONFIRM_BUTTON =new UiElement(By.cssSelector("#loginBtnSignIn"));
     public static final UiElement LOGIN_FIELD=new UiElement(By.cssSelector("[name='login']"));
     public static final UiElement PASSWORD_FIELD=new UiElement(By.cssSelector("[name='pass']"));
+
+    public static final UiElement ENTRANCE_IN_ACCOUNT_DIALOG=new UiElement(By.cssSelector(".auth"));
 }
