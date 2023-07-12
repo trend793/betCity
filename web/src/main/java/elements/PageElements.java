@@ -17,7 +17,7 @@ public class PageElements {
     public static final UiElement UTC_TIME = new UiElement(By.cssSelector(".datetime"));
 
     public static final UiElement LINE_BUTTON = new UiElement(By.cssSelector("*[href='/ru/line']"));
-    public static final UiElement NBA_WINNER_BUTTON_28_06_23 = new UiElement(By.cssSelector(".champs__champ-name[href='/ru/line/basketball/325']"));
+    public static final UiElement NBA_WINNER_BUTTON = new UiElement(By.cssSelector(".champs__champ-name[href='/ru/line/basketball/325']"));
     public static final UiElement NBA_DENVER_BUTTON = new UiElement(By.cssSelector("*[href='/ru/line/basketball/325/13507579']"));
     public static final UiElement NBA_BOSTON_BUTTON = new UiElement(By.cssSelector("*[href='/ru/line/basketball/325/13507553']"));
     public static final UiElement ELEMENT_STAR_FAVORITES = new UiElement(By.cssSelector(".line-event__favorites .icon.icon_favorites"));
@@ -31,4 +31,5 @@ public class PageElements {
     public static final UiElement PASSWORD_FIELD=new UiElement(By.cssSelector("[name='pass']"));
 
     public static final UiElement ENTRANCE_IN_ACCOUNT_DIALOG=new UiElement(By.cssSelector(".auth"));
+    public static final UiElement ENTRANCE_APP_PRELOADER=new UiElement(By.cssSelector("app-preloader"));
 }

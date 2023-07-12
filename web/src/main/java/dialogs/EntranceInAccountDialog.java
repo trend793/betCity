@@ -1,5 +1,6 @@
 package dialogs;
 
+import com.codeborne.selenide.Condition;
 import elements.UiElement;
 import org.assertj.core.api.Assertions;
 
@@ -8,12 +9,14 @@ import static elements.PageElements.CONFIRM_BUTTON;
 import static elements.RandomElements.login;
 
 public class EntranceInAccountDialog {
-    public EntranceInAccountDialog(UiElement selector){};
+    public EntranceInAccountDialog(UiElement selector) {
+    }
 
     public EntranceInAccountDialog checkNotError() {
-        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isEmpty();
+        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getAttribute("innerText")).isEmpty();
         return this;
     }
+
     public EntranceInAccountDialog fillLoginForm() {
         LOGIN_FIELD.get().sendKeys(login());
         PASSWORD_FIELD.get().sendKeys(login());
@@ -26,6 +29,7 @@ public class EntranceInAccountDialog {
     }
 
     public void verifyError() {
-        Assertions.assertThat(!(ERROR_MESSAGE_FIELD.get().getText().isEmpty()));
+        ENTRANCE_APP_PRELOADER.get().should(Condition.disappear);
+        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getAttribute("innerText")).isNotEmpty();
     }
 }

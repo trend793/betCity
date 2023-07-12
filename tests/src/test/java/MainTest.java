@@ -21,7 +21,7 @@ public class MainTest extends TestBase {
     void checkEventsInFavourites() {
         web.onMasterPage().clickLineButton()
                 .selectNBA()
-                .addTeamInFavouritesAndVerifyTeamInFavourites();
+                .addAndVerifyTeamInFavourites();
     }
 
     @Test

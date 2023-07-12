@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 
 import static elements.PageElements.*;
 import static elements.PageElements.DATE_PAGE;
-import static elements.RandomElements.login;
 
 public class MasterPage {
 
@@ -51,19 +50,16 @@ public class MasterPage {
     }
 
     public MasterPage selectNBA() {
-        NBA_WINNER_BUTTON_28_06_23.get().click();
+        NBA_WINNER_BUTTON.get().click(); //28/06/23
         return this;
     }
 
     public void verifyEvensFavourites(@NotNull UiElement selectorTeamInFavorites, @NotNull UiElement selectorTeam) {
-        System.out.println(selectorTeamInFavorites.get().getAttribute("href"));
-        System.out.println(selectorTeam.get().getAttribute("href"));
         Assertions.assertThat(selectorTeamInFavorites.get().getAttribute("href"))
                 .isEqualTo(selectorTeam.get().getAttribute("href"));
-
     }
 
-    public void addTeamInFavouritesAndVerifyTeamInFavourites() {
+    public void addAndVerifyTeamInFavourites() {
         NBA_BOSTON_BUTTON.get().click();
         ELEMENT_STAR_FAVORITES.get().click();
         verifyEvensFavourites(BOSTON_IN_FAVOURITES, NBA_BOSTON_BUTTON);
@@ -73,25 +69,4 @@ public class MasterPage {
         LOGIN_BUTTON.get().click();
         return this;
     }
-
-    public MasterPage fillLoginForm() {
-        LOGIN_FIELD.get().sendKeys(login());
-        PASSWORD_FIELD.get().sendKeys(login());
-        return this;
-    }
-
-    public MasterPage clickConfirmButtonInLoginForm() {
-        CONFIRM_BUTTON.get().click();
-        return this;
-    }
-
-    public void verifyError() {
-        Assertions.assertThat(!(ERROR_MESSAGE_FIELD.get().getText().isEmpty()));
-    }
-
-    public MasterPage checkNotError() {
-        Assertions.assertThat(ERROR_MESSAGE_FIELD.get().getText()).isEmpty();
-        return this;
-    }
-
 }
