@@ -9,7 +9,11 @@ import static elements.PageElements.CONFIRM_BUTTON;
 import static elements.RandomElements.login;
 
 public class EntranceInAccountDialog {
+
+    private final UiElement selector;
+
     public EntranceInAccountDialog(UiElement selector) {
+        this.selector=selector;
     }
 
     public EntranceInAccountDialog checkNotError() {
