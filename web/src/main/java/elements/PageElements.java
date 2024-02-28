@@ -1,9 +1,13 @@
 package elements;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selenide.$;
+
 public class PageElements {
-    public static final UiElement FIRST = new UiElement(By.cssSelector(".push-confirm__title span.icon_close"));
+    public static final SelenideElement FIRST = $(By.cssSelector(".push-confirm__title span.icon_close"));
+
     public static final UiElement RESULTS_BUTTON = new UiElement(By.cssSelector("[href='/ru/results']"));
     public static final UiElement CALENDAR_BUTTON = new UiElement(By.cssSelector(".icon_calendar"));
     public static final UiElement DATE = new UiElement(By.cssSelector("[aria-label*=' 1,']:not(.nextMonthDay)"));

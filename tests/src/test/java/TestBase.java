@@ -9,6 +9,6 @@ public class TestBase {
     void openURL(){
         BrowserManager.openPage(Parametrs.URL);
         WebDriverRunner.getWebDriver().manage().window().maximize();
-        FIRST.get().click();
+        FIRST.click();
     }
 }
